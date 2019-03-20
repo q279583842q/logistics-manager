@@ -1,60 +1,44 @@
 package com.bobo.pojo;
 
-import java.util.Date;
-
 public class User {
-    private Integer userid;
+    private Integer userId;
 
-    private String username;
+    private String userName;
 
-    private Integer sex;
-
-    private String account;
+    private String realName;
 
     private String password;
 
-    private String phone;
-
     private String email;
 
-    private Integer fkRoleid;
+    private Long phone;
 
-    private Date checkintime;
+    private String u1;
 
-    private Integer isdelete;
+    private String u2;
 
-    private Date altertime;
-
-    public Integer getUserid() {
-        return userid;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public Integer getSex() {
-        return sex;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
     }
 
     public String getPassword() {
@@ -65,14 +49,6 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
     public String getEmail() {
         return email;
     }
@@ -81,35 +57,27 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public Integer getFkRoleid() {
-        return fkRoleid;
+    public Long getPhone() {
+        return phone;
     }
 
-    public void setFkRoleid(Integer fkRoleid) {
-        this.fkRoleid = fkRoleid;
+    public void setPhone(Long phone) {
+        this.phone = phone;
     }
 
-    public Date getCheckintime() {
-        return checkintime;
+    public String getU1() {
+        return u1;
     }
 
-    public void setCheckintime(Date checkintime) {
-        this.checkintime = checkintime;
+    public void setU1(String u1) {
+        this.u1 = u1 == null ? null : u1.trim();
     }
 
-    public Integer getIsdelete() {
-        return isdelete;
+    public String getU2() {
+        return u2;
     }
 
-    public void setIsdelete(Integer isdelete) {
-        this.isdelete = isdelete;
-    }
-
-    public Date getAltertime() {
-        return altertime;
-    }
-
-    public void setAltertime(Date altertime) {
-        this.altertime = altertime;
+    public void setU2(String u2) {
+        this.u2 = u2 == null ? null : u2.trim();
     }
 }

@@ -1,33 +1,33 @@
 package com.bobo.pojo;
 
 public class Role {
-    private Integer roleid;
+    private Integer roleId;
 
-    private String rolename;
+    private String roleName;
 
-    private String rolepurview;
+    private String roleDesc;
 
-    public Integer getRoleid() {
-        return roleid;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
-    public String getRolename() {
-        return rolename;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRolename(String rolename) {
-        this.rolename = rolename == null ? null : rolename.trim();
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
     }
 
-    public String getRolepurview() {
-        return rolepurview;
+    public String getRoleDesc() {
+        return roleDesc;
     }
 
-    public void setRolepurview(String rolepurview) {
-        this.rolepurview = rolepurview == null ? null : rolepurview.trim();
+    public void setRoleDesc(String roleDesc) {
+        this.roleDesc = roleDesc == null ? null : roleDesc.trim();
     }
 }

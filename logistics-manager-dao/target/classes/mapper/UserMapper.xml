@@ -2,17 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bobo.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.bobo.pojo.User">
-    <id column="userID" jdbcType="INTEGER" property="userid" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="sex" jdbcType="INTEGER" property="sex" />
-    <result column="account" jdbcType="VARCHAR" property="account" />
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="fk_roleID" jdbcType="INTEGER" property="fkRoleid" />
-    <result column="checkInTime" jdbcType="TIMESTAMP" property="checkintime" />
-    <result column="isDelete" jdbcType="INTEGER" property="isdelete" />
-    <result column="alterTime" jdbcType="TIMESTAMP" property="altertime" />
+    <result column="phone" jdbcType="BIGINT" property="phone" />
+    <result column="u1" jdbcType="VARCHAR" property="u1" />
+    <result column="u2" jdbcType="VARCHAR" property="u2" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,8 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    userID, userName, sex, account, password, phone, email, fk_roleID, checkInTime, isDelete, 
-    alterTime
+    user_id, user_name, real_name, password, email, phone, u1, u2
   </sql>
   <select id="selectByExample" parameterType="com.bobo.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -82,7 +78,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user
+    from t_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -93,143 +89,114 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user
-    where userID = #{userid,jdbcType=INTEGER}
+    from t_user
+    where user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
-    where userID = #{userid,jdbcType=INTEGER}
+    delete from t_user
+    where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.bobo.pojo.UserExample">
-    delete from user
+    delete from t_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.bobo.pojo.User">
-    insert into user (userID, userName, sex, 
-      account, password, phone, 
-      email, fk_roleID, checkInTime, 
-      isDelete, alterTime)
-    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, 
-      #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{fkRoleid,jdbcType=INTEGER}, #{checkintime,jdbcType=TIMESTAMP}, 
-      #{isdelete,jdbcType=INTEGER}, #{altertime,jdbcType=TIMESTAMP})
+    insert into t_user (user_id, user_name, real_name, 
+      password, email, phone, 
+      u1, u2)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=BIGINT}, 
+      #{u1,jdbcType=VARCHAR}, #{u2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.bobo.pojo.User">
-    insert into user
+    insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userid != null">
-        userID,
+      <if test="userId != null">
+        user_id,
       </if>
-      <if test="username != null">
-        userName,
+      <if test="userName != null">
+        user_name,
       </if>
-      <if test="sex != null">
-        sex,
-      </if>
-      <if test="account != null">
-        account,
+      <if test="realName != null">
+        real_name,
       </if>
       <if test="password != null">
         password,
       </if>
-      <if test="phone != null">
-        phone,
-      </if>
       <if test="email != null">
         email,
       </if>
-      <if test="fkRoleid != null">
-        fk_roleID,
+      <if test="phone != null">
+        phone,
       </if>
-      <if test="checkintime != null">
-        checkInTime,
+      <if test="u1 != null">
+        u1,
       </if>
-      <if test="isdelete != null">
-        isDelete,
-      </if>
-      <if test="altertime != null">
-        alterTime,
+      <if test="u2 != null">
+        u2,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userid != null">
-        #{userid,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null">
-        #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="account != null">
-        #{account,jdbcType=VARCHAR},
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
       </if>
-      <if test="fkRoleid != null">
-        #{fkRoleid,jdbcType=INTEGER},
+      <if test="phone != null">
+        #{phone,jdbcType=BIGINT},
       </if>
-      <if test="checkintime != null">
-        #{checkintime,jdbcType=TIMESTAMP},
+      <if test="u1 != null">
+        #{u1,jdbcType=VARCHAR},
       </if>
-      <if test="isdelete != null">
-        #{isdelete,jdbcType=INTEGER},
-      </if>
-      <if test="altertime != null">
-        #{altertime,jdbcType=TIMESTAMP},
+      <if test="u2 != null">
+        #{u2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.bobo.pojo.UserExample" resultType="java.lang.Long">
-    select count(*) from user
+    select count(*) from t_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user
+    update t_user
     <set>
-      <if test="record.userid != null">
-        userID = #{record.userid,jdbcType=INTEGER},
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.username != null">
-        userName = #{record.username,jdbcType=VARCHAR},
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sex != null">
-        sex = #{record.sex,jdbcType=INTEGER},
-      </if>
-      <if test="record.account != null">
-        account = #{record.account,jdbcType=VARCHAR},
+      <if test="record.realName != null">
+        real_name = #{record.realName,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null">
         password = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.phone != null">
-        phone = #{record.phone,jdbcType=VARCHAR},
-      </if>
       <if test="record.email != null">
         email = #{record.email,jdbcType=VARCHAR},
       </if>
-      <if test="record.fkRoleid != null">
-        fk_roleID = #{record.fkRoleid,jdbcType=INTEGER},
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=BIGINT},
       </if>
-      <if test="record.checkintime != null">
-        checkInTime = #{record.checkintime,jdbcType=TIMESTAMP},
+      <if test="record.u1 != null">
+        u1 = #{record.u1,jdbcType=VARCHAR},
       </if>
-      <if test="record.isdelete != null">
-        isDelete = #{record.isdelete,jdbcType=INTEGER},
-      </if>
-      <if test="record.altertime != null">
-        alterTime = #{record.altertime,jdbcType=TIMESTAMP},
+      <if test="record.u2 != null">
+        u2 = #{record.u2,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -237,70 +204,55 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user
-    set userID = #{record.userid,jdbcType=INTEGER},
-      userName = #{record.username,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=INTEGER},
-      account = #{record.account,jdbcType=VARCHAR},
+    update t_user
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      real_name = #{record.realName,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      phone = #{record.phone,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
-      fk_roleID = #{record.fkRoleid,jdbcType=INTEGER},
-      checkInTime = #{record.checkintime,jdbcType=TIMESTAMP},
-      isDelete = #{record.isdelete,jdbcType=INTEGER},
-      alterTime = #{record.altertime,jdbcType=TIMESTAMP}
+      phone = #{record.phone,jdbcType=BIGINT},
+      u1 = #{record.u1,jdbcType=VARCHAR},
+      u2 = #{record.u2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.bobo.pojo.User">
-    update user
+    update t_user
     <set>
-      <if test="username != null">
-        userName = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null">
-        sex = #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="account != null">
-        account = #{account,jdbcType=VARCHAR},
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
       <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="fkRoleid != null">
-        fk_roleID = #{fkRoleid,jdbcType=INTEGER},
+      <if test="phone != null">
+        phone = #{phone,jdbcType=BIGINT},
       </if>
-      <if test="checkintime != null">
-        checkInTime = #{checkintime,jdbcType=TIMESTAMP},
+      <if test="u1 != null">
+        u1 = #{u1,jdbcType=VARCHAR},
       </if>
-      <if test="isdelete != null">
-        isDelete = #{isdelete,jdbcType=INTEGER},
-      </if>
-      <if test="altertime != null">
-        alterTime = #{altertime,jdbcType=TIMESTAMP},
+      <if test="u2 != null">
+        u2 = #{u2,jdbcType=VARCHAR},
       </if>
     </set>
-    where userID = #{userid,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.bobo.pojo.User">
-    update user
-    set userName = #{username,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      account = #{account,jdbcType=VARCHAR},
+    update t_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      fk_roleID = #{fkRoleid,jdbcType=INTEGER},
-      checkInTime = #{checkintime,jdbcType=TIMESTAMP},
-      isDelete = #{isdelete,jdbcType=INTEGER},
-      alterTime = #{altertime,jdbcType=TIMESTAMP}
-    where userID = #{userid,jdbcType=INTEGER}
+      phone = #{phone,jdbcType=BIGINT},
+      u1 = #{u1,jdbcType=VARCHAR},
+      u2 = #{u2,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>
