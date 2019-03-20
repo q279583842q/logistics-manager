@@ -1,11 +1,7 @@
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\ContactMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\DriverMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\TruckMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\GoodsMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\LogdicMapper.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\BasicDataMapper.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\OrderMapper.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\CustomerMapper.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\RoleMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\SyslogMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\TruckteamMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\CarriersMapper.java
-C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\SchedulingMapper.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\OrderDetailMapper.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\MenuMapper.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-dao\src\main\java\com\bobo\mapper\UserMapper.java
