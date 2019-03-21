@@ -27,4 +27,10 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+	void inserUserIdAndRoleId(Integer userId, Integer roleId);
+
+	List<Integer> selectRoleIdByUserId(Integer id);
+
+	void deleteRoleIdByUserId(Integer userId);
 }
