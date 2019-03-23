@@ -1,5 +1,6 @@
 package com.bobo.mapper;
 
+import com.bobo.pojo.Role;
 import com.bobo.pojo.User;
 import com.bobo.pojo.UserExample;
 import java.util.List;
@@ -33,4 +34,6 @@ public interface UserMapper {
 	List<Integer> selectRoleIdByUserId(Integer id);
 
 	void deleteRoleIdByUserId(Integer userId);
+
+	
 }

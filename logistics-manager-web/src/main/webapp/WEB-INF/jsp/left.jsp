@@ -42,9 +42,11 @@ $(function(){
     </div>
     	<ul class="menuson">
         <li><cite></cite><a href="index.html" target="rightFrame">首页模版</a><i></i></li>
-        <li class="active"><cite></cite><a href="/user/query" target="rightFrame">用户管理</a><i></i></li>
+        <li class="active"><cite></cite>
+        	<a href="/user/queryPage" target="rightFrame">用户管理</a>
+        <i></i></li>
         <li><cite></cite><a href="/role/query" target="rightFrame">角色管理</a><i></i></li>
-        <li><cite></cite><a href="form.html" target="rightFrame">添加编辑</a><i></i></li>
+        <li><cite></cite><a href="/basic/query" target="rightFrame">基础数据管理</a><i></i></li>
         <li><cite></cite><a href="imglist.html" target="rightFrame">图片列表</a><i></i></li>
         <li><cite></cite><a href="imglist1.html" target="rightFrame">自定义</a><i></i></li>
         <li><cite></cite><a href="tools.html" target="rightFrame">常用工具</a><i></i></li>

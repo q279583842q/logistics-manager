@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.ui.Model;
 
 import com.bobo.dto.UserDto;
+import com.bobo.pojo.Role;
 import com.bobo.pojo.User;
+import com.github.pagehelper.PageInfo;
 
 /**
  * 用户信息
@@ -60,4 +62,18 @@ public interface IUserService {
 	 * @param userDto
 	 */
 	public void saveOrUpdate(UserDto userDto)throws Exception;
+
+	/**
+	 * 分页带条件查询用户信息
+	 * @param dto
+	 * @return
+	 */
+	public PageInfo<User> queryPage(UserDto dto);
+	
+	/**
+	 * 根据用户编号获取对应的权限信息
+	 * @param userId
+	 * @return
+	 */
+	public List<Role> queryRoleByUserId(int userId);
 }

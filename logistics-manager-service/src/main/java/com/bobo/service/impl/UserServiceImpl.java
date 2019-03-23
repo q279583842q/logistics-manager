@@ -17,6 +17,8 @@ import com.bobo.pojo.RoleExample;
 import com.bobo.pojo.User;
 import com.bobo.pojo.UserExample;
 import com.bobo.service.IUserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -30,7 +32,12 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<User> query(User user) {
 		UserExample example = new UserExample();
-		// ---
+		if(user!=null){
+			if(!"".equals(user.getUserName()) && user.getUserName()!= null){
+				// 根据账号查询
+				example.createCriteria().andUserNameEqualTo(user.getUserName());
+			}
+		}
 		return userMapper.selectByExample(example);
 	}
 
@@ -100,5 +107,19 @@ public class UserServiceImpl implements IUserService {
 			}
 			
 		}
+	}
+	
+	@Override
+	public PageInfo<User> queryPage(UserDto dto) {
+		PageHelper.startPage(dto.getPageNum(), dto.getPageSize());
+		List<User> list = this.query(dto.getUser());
+		PageInfo<User> pageInfo = new PageInfo<User>(list);
+		return pageInfo;
+	}
+
+	@Override
+	public List<Role> queryRoleByUserId(int userId) {
+		
+		return roleMapper.queryRoleByUserId(userId);
 	}
 }

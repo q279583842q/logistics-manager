@@ -178,4 +178,11 @@
       role_desc = #{roleDesc,jdbcType=VARCHAR}
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
+   <select id="queryRoleByUserId" resultMap="BaseResultMap">
+  	select * 
+  	from t_role t1 
+  	where t1.role_id in (
+  		select role_id from t_user_role where user_id = #{id}
+  	)
+  </select>
 </mapper>

@@ -10,7 +10,7 @@ import com.bobo.pojo.User;
  *
  * dengpbs@163.com
  */
-public class UserDto {
+public class UserDto extends BasePage{
 
 	// 用户信息
 	public User user;

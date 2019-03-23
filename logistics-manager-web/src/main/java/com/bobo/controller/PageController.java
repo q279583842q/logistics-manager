@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
 	/**
-	 * 跟目录就跳转到main.jsp页面
+	 * 跟目录就跳转到login.jsp页面
 	 * @return
 	 */
 	@RequestMapping("/")
 	public String showMain(){
-		return "main";
+		return "login";
 	}
 	
 	/**

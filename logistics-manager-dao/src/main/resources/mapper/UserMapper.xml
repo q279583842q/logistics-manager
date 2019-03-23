@@ -265,4 +265,5 @@
   <delete id="deleteRoleIdByUserId">
   	delete from t_user_role where user_id=#{id}
   </delete>
+ 
 </mapper>

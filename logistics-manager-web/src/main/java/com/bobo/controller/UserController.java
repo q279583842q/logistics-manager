@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.bobo.pojo.Role;
 import com.bobo.pojo.User;
 import com.bobo.service.IRoleService;
 import com.bobo.service.IUserService;
+import com.github.pagehelper.PageInfo;
 
 /**
  * 角色 控制层
@@ -35,6 +37,16 @@ public class UserController {
 		model.addAttribute("list", list);
 		return "user/user";
 	}
+	
+	@RequiresRoles("管理员")
+	@RequestMapping("/queryPage")
+	public String queryPage(UserDto dto,Model model){
+		PageInfo<User> pageModel = userService.queryPage(dto);
+		model.addAttribute("pageModel", pageModel);
+		return "user/user";
+	}
+	
+	
 	
 	/**
 	 * 进入添加或者修改页面
@@ -58,11 +70,11 @@ public class UserController {
 	@RequestMapping("/saveOrUpdate")
 	public String saveOrUpdate(UserDto userDto) throws Exception{
 		userService.saveOrUpdate(userDto);
-		return "redirect:/user/query";
+		return "redirect:/user/queryPage";
 	}
 	@RequestMapping("/delete")
 	public String deleteUser(Integer id) throws Exception{
 		userService.deleteUser(id);
-		return "redirect:/user/query";
+		return "redirect:/user/queryPage";
 	}
 }
