@@ -21,4 +21,11 @@ public interface IBasicService {
 	public void updateBasicData(BasicData bd);
 
 	public void getUpdateInfo(Integer id, Model m);
+	/**
+	 * 根据大类名称查询对应的小类
+	 * @param parentName
+	 * @return
+	 */
+	public List<BasicData> getBasicDataByParentName(String parentName);
+	
 }

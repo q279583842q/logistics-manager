@@ -265,5 +265,15 @@
   <delete id="deleteRoleIdByUserId">
   	delete from t_user_role where user_id=#{id}
   </delete>
+  
+  <select id="queryUserByRoleName" resultMap="BaseResultMap">
+  	select *
+  	from t_user
+  	where user_id in (
+  		select user_id from t_user_role where role_id = (
+  			select role_id from t_role where role_name = #{param1}
+  		)
+  	)
+  </select>
  
 </mapper>

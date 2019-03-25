@@ -38,4 +38,5 @@ public interface IRoleService {
 	 * @throws Exception
 	 */
 	public void deleteRole(int id) throws Exception;
+	
 }

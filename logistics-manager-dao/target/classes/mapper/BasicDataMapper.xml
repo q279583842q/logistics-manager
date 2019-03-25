@@ -91,6 +91,7 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_basicdata
     where base_id = #{baseId,jdbcType=INTEGER}
+    or parent_id = #{baseId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.bobo.pojo.BasicDataExample">
     delete from t_basicdata

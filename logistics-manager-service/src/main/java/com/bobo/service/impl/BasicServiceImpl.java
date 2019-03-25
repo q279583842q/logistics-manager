@@ -24,7 +24,12 @@ public class BasicServiceImpl implements IBasicService {
 	@Override
 	public List<BasicData> query(BasicData bd) {
 		BasicDataExample example = new BasicDataExample();
-		
+		if(bd != null){
+			if(!"".equals(bd.getBaseName()) && bd.getBaseName()!=null){
+				// 根据 数据名称查询
+				example.createCriteria().andBaseNameEqualTo(bd.getBaseName());
+			}
+		}
 		return basicDataMapper.selectByExample(example );
 	}
 
@@ -37,8 +42,8 @@ public class BasicServiceImpl implements IBasicService {
 
 	@Override
 	public void addBasicData(BasicData bd) {
+		
 		basicDataMapper.insertSelective(bd);
-
 	}
 
 	@Override
@@ -64,4 +69,22 @@ public class BasicServiceImpl implements IBasicService {
 			m.addAttribute("basic", data);
 		}
 	}
+
+	@Override
+	public List<BasicData> getBasicDataByParentName(String parentName) {
+		BasicData bd = new BasicData();
+		bd.setBaseName(parentName);
+		// 根据 父编号名称查询出对应的 编号
+		List<BasicData> list = this.query(bd);
+		if(list!=null && list.size()==1){
+			bd = list.get(0);
+			// 然后根据baseID 查询所有对应的基础数据
+			BasicDataExample example = new BasicDataExample();
+			example.createCriteria().andParentIdEqualTo(bd.getBaseId());
+			return basicDataMapper.selectByExample(example );
+			
+		}
+		return null;
+	}
+
 }

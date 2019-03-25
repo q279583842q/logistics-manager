@@ -303,4 +303,49 @@
       remark = #{remark,jdbcType=VARCHAR}
     where customer_id = #{customerId,jdbcType=INTEGER}
   </update>
+  
+  <resultMap type="com.bobo.dto.CustomerDto" id="baseCustomerDto">
+  	<id column="customer_id" jdbcType="INTEGER" property="customer.customerId" />
+    <result column="order_id" jdbcType="INTEGER" property="customer.orderId" />
+    <result column="base_id" jdbcType="INTEGER" property="customer.baseId" />
+    <result column="user_id" jdbcType="INTEGER" property="customer.userId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customer.customerName" />
+    <result column="mobile_phone" jdbcType="BIGINT" property="customer.mobilePhone" />
+    <result column="email" jdbcType="VARCHAR" property="customer.email" />
+    <result column="address" jdbcType="VARCHAR" property="customer.address" />
+    <result column="id_card" jdbcType="VARCHAR" property="customer.idCard" />
+    <result column="c_sex" jdbcType="BIT" property="customer.cSex" />
+    <result column="remark" jdbcType="VARCHAR" property="customer.remark" />
+    <result column="real_name" jdbcType="VARCHAR" property="salesMan" />
+    <result column="base_name" jdbcType="VARCHAR" property="interval" />
+    <result column="num" jdbcType="INTEGER" property="orderNum" />
+  </resultMap>
+  
+  <select id="queryView" resultMap="baseCustomerDto" parameterType="com.bobo.pojo.Customer" >
+  	select 
+  			t1.customer_id
+			,t1.customer_name
+			,t1.address
+			,t1.c_sex
+			,t1.email
+			,t1.base_id
+			,t1.id_card
+			,t1.mobile_phone
+			,t1.order_id
+			,t1.remark
+			,t1.user_id
+			,t1.user_name
+			,t1.real_name
+			,t1.base_name 
+			,t1.num
+  	from v_customer t1
+  	<where>
+  		<if test="userId !=null and userId > 0">
+  			user_id = #{userId}
+  		</if>
+  		<if test="customerId !=null and customerId > 0 ">
+  			customer_id = #{customerId}
+  		</if>
+  	</where>
+  </select>
 </mapper>

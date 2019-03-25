@@ -40,14 +40,14 @@ $(document).ready(function(e) {
 		</div>
 		<form action="/basic/saveOrUpdate">
 			<ul class="forminfo">
-				
+				<input type="hidden" name="baseId" value="${basic.baseId }">
 				<li><label>基础数据</label>
-					<input name="baseName"  type="text" 
+					<input name="baseName"  type="text"  value="${basic.baseName }"
 					class="dfinput" />
 					<i>基础数据不能超过30个字符</i>
 				</li>
 				<li><label>描述</label>
-					<input name="baseDesc" type="text" 
+					<input name="baseDesc" type="text" value="${basic.baseDesc }"
 					class="dfinput" />
 				</li>
 				
@@ -57,7 +57,9 @@ $(document).ready(function(e) {
 					    <select class="select1" name="parentId">
 					    <option value="0">--本身就是大类--</option>
 					    <c:forEach items="${ parents}" var="parent">
-					    	<option value="${parent.baseId }">${parent.baseName }</option>
+					    	<option value="${parent.baseId }" ${parent.baseId eq basic.parentId?"selected":"" }>
+					    		${parent.baseName }
+					    	</option>
 					    </c:forEach>
 					    </select>
 					</div>
@@ -69,6 +71,9 @@ $(document).ready(function(e) {
 					class="btn" value="确认保存" /></li>
 				</ul>
 		</form>
+		
+			
+			
 		
 	</div>
 	<div style="display: none">

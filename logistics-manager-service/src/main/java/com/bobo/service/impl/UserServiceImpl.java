@@ -122,4 +122,10 @@ public class UserServiceImpl implements IUserService {
 		
 		return roleMapper.queryRoleByUserId(userId);
 	}
+
+	@Override
+	public List<User> queryUserByRoleName(String roleName) {
+		
+		return userMapper.queryUserByRoleName(roleName);
+	}
 }

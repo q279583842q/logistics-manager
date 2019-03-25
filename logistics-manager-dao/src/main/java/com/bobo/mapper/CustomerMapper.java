@@ -1,5 +1,6 @@
 package com.bobo.mapper;
 
+import com.bobo.dto.CustomerDto;
 import com.bobo.pojo.Customer;
 import com.bobo.pojo.CustomerExample;
 import java.util.List;
@@ -27,4 +28,7 @@ public interface CustomerMapper {
     int updateByPrimaryKeySelective(Customer record);
 
     int updateByPrimaryKey(Customer record);
+    
+    List<CustomerDto> queryView(Customer record);
+    
 }

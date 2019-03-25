@@ -76,4 +76,11 @@ public interface IUserService {
 	 * @return
 	 */
 	public List<Role> queryRoleByUserId(int userId);
+	
+	/**
+	 * 根据角色名称查询对应的用户信息
+	 * @param roleName
+	 * @return
+	 */
+	public List<User> queryUserByRoleName(String roleName);
 }

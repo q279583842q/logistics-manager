@@ -46,7 +46,7 @@
 		<div class="tools">
 			<ul class="toolbar">
 				<li class="click">
-					<a href="basicUpdate">
+					<a href="/basic/basicUpdate">
 						<span>
 								<img src="/images/t01.png" />
 						</span>
@@ -81,8 +81,7 @@
 						<td>${basic.parentId }</td>
 						<td>${basic.baseDesc }</td>
 						<td>
-							<a href="/user/userUpdate?id=${basic.baseId }" 
-							class="tablelink">修改</a> 
+							<a href="/basic/basicUpdate?id=${basic.baseId}" class="tablelink">修改</a> 
 							<a href="javascript:void(0)" onclick="deleteUser(${basic.baseId})" 
 							class="tablelink"> 删除</a></td>
 					</tr>
@@ -101,7 +100,7 @@
 		$('.tablelist tbody tr:odd').addClass('odd');
 		function deleteUser(userId){
 			if(window.confirm("确定要删除该用户吗?")){
-				location.href="/user/delete?id="+userId;
+				location.href="/basic/delete?id="+userId;
 			}
 		}
 	</script>

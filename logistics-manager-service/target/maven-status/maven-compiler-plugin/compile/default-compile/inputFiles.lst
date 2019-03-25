@@ -1,6 +1,10 @@
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\impl\BasicServiceImpl.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\impl\CustomerServiceImpl.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\impl\OrderServiceImpl.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\ICustomerService.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\IUserService.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\IBasicService.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\impl\RoleServiceImpl.java
+C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\IOrderService.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\impl\UserServiceImpl.java
 C:\tools\workspace\workspace-ytwl\logistics-manager\logistics-manager-service\src\main\java\com\bobo\service\IRoleService.java

@@ -111,7 +111,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.bobo.pojo.Order">
+  <insert id="insert" parameterType="com.bobo.pojo.Order" useGeneratedKeys="true" keyProperty="orderId">
     insert into t_order (order_id, customer_id, user_id, 
       shipping_address, shipping_name, shipping_phone, 
       take_name, take_address, take_phone, 
@@ -125,7 +125,7 @@
       #{destAreaId,jdbcType=INTEGER}, #{transMethodId,jdbcType=INTEGER}, #{takeMethodId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.bobo.pojo.Order">
+  <insert id="insertSelective" parameterType="com.bobo.pojo.Order" useGeneratedKeys="true" keyProperty="orderId">
     insert into t_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">

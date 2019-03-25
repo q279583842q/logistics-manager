@@ -35,7 +35,18 @@ public class BasicDataController {
 		if(bd.getParentId()==0){
 			bd.setParentId(null);
 		}
-		basicService.addBasicData(bd);
+		if(bd.getBaseId()!=null && bd.getBaseId() > 0){
+			// 表示更新数据
+			basicService.updateBasicData(bd);
+		}else{
+			// 表示添加数据
+			basicService.addBasicData(bd);
+		}
+		return "redirect:/basic/query";
+	}
+	@RequestMapping("/delete")
+	public String delete(Integer id){
+		basicService.deleteBasicData(id);
 		return "redirect:/basic/query";
 	}
 }

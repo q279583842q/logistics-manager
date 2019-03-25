@@ -40,6 +40,7 @@
                 /css/** = anon
                 /js/** = anon
                 /lib/** = anon
+                /favicon.ico = anon
                 /login.do = authc
                 /** = authc
  			</value>
